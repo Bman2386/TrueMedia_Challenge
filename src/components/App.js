@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react'
 import {getQBs, getStats} from '../util/getData.js'
 
-import '../css/App.css';
+import '../css/App.css'
 
 function App() {
   const [data, setData] = useState(null)
+  const [token, setToken] = useState(null)
   const [stats0, setStats0] = useState(null)
   const [stats1, setStats1] = useState(null)
   const [stats2, setStats2] = useState(null)
@@ -12,14 +13,18 @@ function App() {
   const [qb2, setQb2] = useState(null)
   const [winner, setWinner] = useState(null)
 
-  useEffect( () => { // Grab QB's on load
-      getQBs().then(res => {
+  // useEffect( () => { // Grab QB's on load
+  //     getQBs().then(res => {
+  //     setData(res)
+  //   })
+  // }, [])
+  const grabStartingData = () => {
+    getQBs(token).then(res => {
       setData(res)
     })
-  }, [])
-
+  }
   const viewStats = (qbId, idx) => {
-    getStats(qbId).then(res => {
+    getStats(qbId, token).then(res => {
       switch (idx) {
         case 0:
            setStats0(res)
@@ -201,10 +206,18 @@ function App() {
           <div className='qbContainer'>
             {displayRaw()}
           </div>
-      </div> : <p className='header'>Grabbing Data</p>} 
+      </div> : 
+      <div className='starting-container'> 
+        <label className='token-label'>Please Enter Token to use this site</label>
+        <input
+        value={token}
+        onChange={(e)=>setToken(e.target.value)}
+        ></input>
+        <button onClick={()=> grabStartingData()}>Enter</button>
+      </div>} 
       
     </div>
   );
 }
 
-export default App; 
+export default App

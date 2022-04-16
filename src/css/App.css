@@ -112,3 +112,13 @@ select {
 .rating{
   font-weight: 600;
 }
+
+.starting-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.token-label {
+  margin-right: .5rem;
+}
