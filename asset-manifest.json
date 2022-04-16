@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/TrueMedia_Challenge/static/css/main.d2850d43.css",
-    "main.js": "/TrueMedia_Challenge/static/js/main.6aeebd0e.js",
+    "main.css": "/TrueMedia_Challenge/static/css/main.89c20e5b.css",
+    "main.js": "/TrueMedia_Challenge/static/js/main.fddbcd05.js",
     "index.html": "/TrueMedia_Challenge/index.html",
-    "main.d2850d43.css.map": "/TrueMedia_Challenge/static/css/main.d2850d43.css.map",
-    "main.6aeebd0e.js.map": "/TrueMedia_Challenge/static/js/main.6aeebd0e.js.map"
+    "main.89c20e5b.css.map": "/TrueMedia_Challenge/static/css/main.89c20e5b.css.map",
+    "main.fddbcd05.js.map": "/TrueMedia_Challenge/static/js/main.fddbcd05.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2850d43.css",
-    "static/js/main.6aeebd0e.js"
+    "static/css/main.89c20e5b.css",
+    "static/js/main.fddbcd05.js"
   ]
 }
