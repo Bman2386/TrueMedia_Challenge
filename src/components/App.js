@@ -12,6 +12,7 @@ function App() {
   const [qb1, setQb1] = useState(null)
   const [qb2, setQb2] = useState(null)
   const [winner, setWinner] = useState(null)
+  const [error, setError] = useState(null)
 
   // useEffect( () => { // Grab QB's on load
   //     getQBs().then(res => {
@@ -20,7 +21,13 @@ function App() {
   // }, [])
   const grabStartingData = () => {
     getQBs(token).then(res => {
-      setData(res)
+      if (res) {
+        setError(null)
+        setData(res)
+      } else {
+        setError('Invalid Token')
+      }
+      
     })
   }
   const viewStats = (qbId, idx) => {
@@ -179,7 +186,6 @@ function App() {
   }
   return (
     <div className="App">
-      <img></img>
       <h1 className='header'>NFL Quarterbacks</h1>
       {data? 
       <div className='body'>
@@ -214,8 +220,9 @@ function App() {
         onChange={(e)=>setToken(e.target.value)}
         ></input>
         <button onClick={()=> grabStartingData()}>Enter</button>
+       
       </div>} 
-      
+       {error? <p className='error'>{`${error}`}</p> : ''}
     </div>
   );
 }

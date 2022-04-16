@@ -122,3 +122,10 @@ select {
 .token-label {
   margin-right: .5rem;
 }
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 2rem;
+  margin-top:1rem;
+}

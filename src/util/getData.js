@@ -11,7 +11,12 @@ export async function getQBs(token){
         }
     })
     const QBData = await response.json()
-    return QBData
+    if (Array.isArray(QBData)){
+       return QBData 
+    } else {
+        return null
+    }
+
 }
 
 export async function getStats(id, token){
