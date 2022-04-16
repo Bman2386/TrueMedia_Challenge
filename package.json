@@ -1,14 +1,14 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://nfl-quarterbacks.com",
+  "private": false,
+  "homepage": "https://Bman2386.github.io/TrueMedia_Challenge",
   "dependencies": {
     "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "^5.0.1"
-  },
+  },  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
