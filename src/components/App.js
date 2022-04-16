@@ -8,8 +8,8 @@ function App() {
   const [stats0, setStats0] = useState(null)
   const [stats1, setStats1] = useState(null)
   const [stats2, setStats2] = useState(null)
-  const [qb1, setQb1] = useState({})
-  const [qb2, setQb2] = useState({})
+  const [qb1, setQb1] = useState(null)
+  const [qb2, setQb2] = useState(null)
   const [winner, setWinner] = useState(null)
 
   useEffect( () => { // Grab QB's on load
@@ -63,15 +63,15 @@ function App() {
     total['rating'] = qbRating
     return (
       <ul>
-        <li>Rating: {total.rating}</li>
+        <li className='rating'>Rating: {total.rating}</li>
         <li>Attemps: {total.Att}</li>
         <li>Completions: {total.Cmp}</li>
         <li>Interceptions: {total.Int}</li>
-        <li>PsYds: {total.PsYds}</li>
-        <li>PsTds: {total.PsTD}</li>
+        <li>PassYds: {total.PsYds}</li>
+        <li>PassTDs: {total.PsTD}</li>
         <li>Rush: {total.Rush}</li>
-        <li>Rushing Yards: {total.RshYds}</li>
-        <li>Rushing Touchdowns: {total.RshTD}</li>
+        <li>Rushing Yds: {total.RshYds}</li>
+        <li>RushingTD: {total.RshTD}</li>
       </ul>
     )
 
@@ -174,33 +174,34 @@ function App() {
   }
   return (
     <div className="App">
+      <img></img>
       <h1 className='header'>NFL Quarterbacks</h1>
       {data? 
       <div className='body'>
-        <div>
-      {displayRaw()}
-      </div>
       { stats0&&stats1&&stats2 ?
          <div className='compare'>
-      <button onClick={() => determineWinner()}>Head to Head</button>
+      
       <select onChange={(e) => setQb1(e.target.value)} value={qb1}>
         <option value="">Select a QB</option>
         <option value={data[0].playerId}>{data[0].fullName}</option>
         <option value={data[1].playerId}>{data[1].fullName}</option>
         <option value={data[2].playerId}>{data[2].fullName}</option>
       </select>
-      <label>Vs.</label>
+      <label> Vs. </label>
       <select onChange={(e) => setQb2(e.target.value)} value={qb2}>
         <option value="">Select a QB</option>
         <option value={data[0].playerId}>{data[0].fullName}</option>
         <option value={data[1].playerId}>{data[1].fullName}</option>
         <option value={data[2].playerId}>{data[2].fullName}</option>
       </select>
-      {winner ? <p>{`${winner}`}</p>:''}
+      {qb1 && qb2 ? <button onClick={() => determineWinner()}>Head to Head</button>: ''}
+      {winner&&qb1&&qb2 ? <p className='winner'>Winner: {`${winner}`}</p>:''}
         </div>
        : ''}
-     
-      </div> : <p>Grabbing Data</p>} 
+          <div className='qbContainer'>
+            {displayRaw()}
+          </div>
+      </div> : <p className='header'>Grabbing Data</p>} 
       
     </div>
   );

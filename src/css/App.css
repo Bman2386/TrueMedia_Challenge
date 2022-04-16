@@ -1,22 +1,52 @@
 .App{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
+ 
 }
-
+body {
+  background-color: green;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+label {
+  color: white;
+}
+ul, li {
+  text-decoration: none;
+  list-style: none;
+}
+ul  {
+  padding-right: .5rem;
+}
 .header {
   text-align: center;
   text-decoration: underline;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: .2em;
+  color: white;
 }
 .qb {
   display: flex;
   flex-direction: row;
   margin: 1rem;
   margin-left: 3rem;
+  background-color: white;
+  border-radius: .2rem;
+  padding: .5rem;
+  filter: drop-shadow(1rem 1rem 1rem black);
 }
 
 .name {
   display: flex;
   flex-direction: column;
   text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: black;
+  letter-spacing: .1em;
 }
 
 .qbImage{
@@ -24,26 +54,61 @@
 }
 
 .team {
-  height: 3rem;
-  width: 3rem;
+  height: 3.5rem;
+  width: 3.5rem;
   margin-top: 1rem;
-  margin-right: 1rem;
+  margin-right: .5rem;
 }
 
+button {
+  border: none;
+  background-color: green;
+  color: grey;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: .1em;
+}
 .statsButton {
   height: fit-content;
   width: fit-content;
   margin-top: 2rem;
-  background-color: aliceblue;
-  border-radius: .5rem;
+  background-color: white;
 }
 
-.statsButton:hover {
-  background-color: rgb(153, 201, 239);
+button:hover {
+  color: red;
   cursor: pointer;
 }
 
-.body {
+.compare {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+.qbContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+select {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: .1em;
+  border-radius: .1rem;
+}
+
+.winner {
+  margin-left: 1rem;
+  color: red;
+  background-color: white;
+  border-radius: .1em;
+  padding: .1rem;
+}
+
+.rating{
+  font-weight: 600;
 }
